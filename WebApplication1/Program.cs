@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using WebApplication1.Models;
+
 
 namespace WebApplication1
 {
@@ -6,6 +9,13 @@ namespace WebApplication1
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            string connString = builder.Configuration.GetConnectionString("SqlConnection");
+
+            // регистрируем DbContext с SQL Server
+            builder.Services.AddDbContext<UsersDBContext>(options =>
+                options.UseSqlServer(connString));
+
 
             // Add services to the container.
 
