@@ -9,5 +9,10 @@
 
         public int RoleId { get; set; }
         public Role Role { get; set; } = null!;
+        public List<Vehicle> Vehicles { get; set; } = new();
+
+        public List<Appointment> CustomerAppointments { get; set; } = new();
+        public List<Appointment> MechanicAppointments { get; set; } = new();
+
     }
 }
